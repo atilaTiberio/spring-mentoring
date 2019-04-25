@@ -1,0 +1,9 @@
+ Code for getting content type of an url
+
+  String urlname="https://drive.google.com/uc?export=download&id=0B5wc002kIlphV2hRWVd5NFBPU1U";
+        URL url = new URL(urlname);
+        URLConnection connection = url.openConnection();
+        connection.connect();
+        String contentType = connection.getContentType();
+
+        System.out.println(contentType);
