@@ -3,6 +3,7 @@ package mx.internetbrands.test;
 import mx.internetbrands.spring.beana.db.entity.jpa.EmployeesEntity;
 import mx.internetbrands.spring.beana.db.entity.plain.Employee;
 import mx.internetbrands.spring.beana.db.repository.jdbc.dao.MysqlSimpleJDBC;
+import mx.internetbrands.spring.beana.db.repository.jdbc.dao.impl.EmployeeDAOImpl;
 import mx.internetbrands.spring.beana.db.repository.jpa.EmployeeRepository;
 import mx.internetbrands.spring.config.SpringJavaConfig;
 import org.junit.Test;
@@ -12,7 +13,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertNotNull;
@@ -58,6 +61,15 @@ public class JpaRepositoryTest {
 
 
         assertNotNull(tmp);
+
+    }
+
+    @Test
+    public void getAllEmployees(){
+
+        List<EmployeesEntity> employeesEntities= employeeRepository.getAllEmployees();
+
+        assertNotNull(employeesEntities);
 
     }
 

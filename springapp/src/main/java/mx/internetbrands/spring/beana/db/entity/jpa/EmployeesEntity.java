@@ -115,7 +115,7 @@ public class EmployeesEntity {
         this.deptManagersByEmpNo = deptManagersByEmpNo;
     }
 
-    @OneToMany(mappedBy = "employeesByEmpNo",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "employeesByEmpNo")
     public Collection<SalariesEntity> getSalariesByEmpNo() {
         return salariesByEmpNo;
     }
@@ -142,7 +142,6 @@ public class EmployeesEntity {
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", hireDate=" + hireDate +
-                ", salariesByEmpNo=" + salariesByEmpNo +
                 '}';
     }
 }
