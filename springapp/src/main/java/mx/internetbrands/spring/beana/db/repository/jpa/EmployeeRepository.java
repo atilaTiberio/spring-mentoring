@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
-public interface EmployeeRepository<E> extends CrudRepository<EmployeesEntity,Integer> {
+public interface EmployeeRepository extends CrudRepository<EmployeesEntity,Integer> {
 
 
     @Query(value = "SELECT * FROM employees e LIMIT 1000",nativeQuery = true)

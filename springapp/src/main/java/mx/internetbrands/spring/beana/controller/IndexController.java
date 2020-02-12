@@ -14,7 +14,7 @@ public class IndexController {
 
 
     @Autowired
-    EmployeeRepository<EmployeesEntity> employeeRepository;
+    EmployeeRepository employeeRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index( ){

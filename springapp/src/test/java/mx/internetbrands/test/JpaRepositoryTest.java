@@ -27,7 +27,9 @@ public class JpaRepositoryTest {
 
 
     @Autowired
-    EmployeeRepository<EmployeesEntity> employeeRepository;
+    EmployeeRepository employeeRepository;
+
+
 
 
     @Test
