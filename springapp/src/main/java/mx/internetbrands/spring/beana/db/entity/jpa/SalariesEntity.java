@@ -70,7 +70,7 @@ public class SalariesEntity {
         return Objects.hash(empNo, salary, fromDate, toDate);
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emp_no", referencedColumnName = "emp_no", nullable = false)
     public EmployeesEntity getEmployeesByEmpNo() {
         return employeesByEmpNo;

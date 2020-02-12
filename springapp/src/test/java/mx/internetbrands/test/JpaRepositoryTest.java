@@ -1,14 +1,19 @@
 package mx.internetbrands.test;
 
 import mx.internetbrands.spring.beana.db.entity.jpa.EmployeesEntity;
+import mx.internetbrands.spring.beana.db.entity.jpa.SalariesEntity;
 import mx.internetbrands.spring.beana.db.entity.plain.Employee;
 import mx.internetbrands.spring.beana.db.repository.jdbc.dao.MysqlSimpleJDBC;
 import mx.internetbrands.spring.beana.db.repository.jdbc.dao.impl.EmployeeDAOImpl;
 import mx.internetbrands.spring.beana.db.repository.jpa.EmployeeRepository;
+import mx.internetbrands.spring.beana.db.repository.jpa.SalariesRepository;
 import mx.internetbrands.spring.config.SpringJavaConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -17,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -29,6 +35,9 @@ public class JpaRepositoryTest {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @Autowired
+    SalariesRepository salariesRepository;
+
 
 
 
@@ -36,6 +45,7 @@ public class JpaRepositoryTest {
     public void repositoryNotNull(){
 
         assertNotNull(employeeRepository);
+        assertNotNull(salariesRepository);
     }
 
     @Test
@@ -73,6 +83,15 @@ public class JpaRepositoryTest {
 
         assertNotNull(employeesEntities);
 
+    }
+
+    @Test
+    public void getAllSalaries(){
+
+        List<SalariesEntity> salaries=salariesRepository.getAllSalaries(PageRequest.of(0, 50));
+        List<SalariesEntity> ss=salariesRepository.findTop10BySalaryIsNotNull();
+
+        assertNotNull(salaries);
     }
 
 
